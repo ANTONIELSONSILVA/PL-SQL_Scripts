@@ -144,3 +144,48 @@ Statement processed.
 2nd Sunday in may is: Mother's day
 
 */
+
+
+ -- TYPE
+
+ V_BALANCE NUMBER(7, 2);
+ V_MIN_BALANCE    V_BALANCE%TYPE := 1000;
+
+
+
+
+ -- VARIÁVEIS BOOLEANAS
+
+ -- Somente os valores TRUE, FALSE e NULL podem ser atribuídos a uma variável
+ --	booleana.
+
+ V_VALID BOOLEAN NOT NULL := TRUE;
+
+
+
+-- Obter o tamanho de uma string
+
+V_DESC_SIZE INTEGER(5);
+V_PROD_DESCRIPTION VARCHAR2(70) := 'YOU CAN USE THIS ...'
+
+V_DESC_SIZE := LENGTH(V_PROD_DESCRIPTION);
+
+
+
+-- Blocos Aninhados
+	-- FUNÇÃO DENTRO DE FUNÇÃO
+
+	DECLARE
+		V_OUTER_VARIABLE VARCHAR2(20) := 'GLOBAL VARIABLE';
+	BEGIN
+
+			DECLARE
+				V_INNER_VARIABLE VARCHAR2(20) := 'LOCAL VARIABLE';
+			BEGIN
+				DBMS_OUTPUT.PUT_LINE(V_INNER_VARIABLE);
+				DBMS_OUTPUT.PUT_LINE(V_OUTER_VARIABLE);
+			END;
+
+		DBMS_OUTPUT.PUT_LINE(V_OUTER_VARIABLE);
+
+	END;
