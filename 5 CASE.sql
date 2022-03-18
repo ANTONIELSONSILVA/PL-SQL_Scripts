@@ -19,34 +19,32 @@ END;
 
 
 
-
-Video 4
-
-
-
 DECLARE
 	V_GRADE CHAR(1);
 	V_APPRAISAL VARCHAR2(20);
 BEGIN
 	V_GRADE := UPPER('A');
-	V_APPRAISAL :=
-		CASE
-			WHEN V_GRADE = 'A' THEN 'Excellent'
-			WHEN V_GRADE IN ('B', 'C') THEN 'Good'
-			ELSE 'No such grade'
-		END;
-		DBMS_OUTPUT.PUTLINE('Grade: ' || V_GRADE || 'Appraisal' ||
+	V_APPRAISAL := CASE
+						WHEN V_GRADE = 'A' THEN 'Excellent'
+						WHEN V_GRADE IN ('B', 'C') THEN 'Good'
+						ELSE 'No such grade'
+			       END;
+
+	DBMS_OUTPUT.PUTLINE('Grade: ' || V_GRADE || 'Appraisal' ||
 					   V_APPRAISAL);
 END;
 
 
-=============================================================================
+
+
+
 
 
 DECLARE
-	_deptid NUMBER; v_deptname VARCHAR2(20);
-	_emps NUMBER;
-	_mngid NUMBER:= 108;
+	V_deptid NUMBER;
+	V_deptname VARCHAR2(20);
+	V_emps NUMBER;
+	V_mngid NUMBER:= 108;
 BEGIN
 	CASE v_mngid
 		WHEN 108 THEN
